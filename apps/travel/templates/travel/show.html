@@ -1,0 +1,57 @@
+{% extends 'login_reg/base.html' %}
+{% block body%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<a href="{% url 'auth:logout' %}">logout</a>
+<h1>Hello, {{user.name}}!</h1>
+<a href="{% url 'travels:add' %}">Add Travel Plan</a>
+<h2>Your Trip schedule</h2>
+<table>
+  <tr>
+    <th>Destination</th>
+    <th>Travel Start Date</th>
+    <th>Travel End Date</th>
+    <th>Plan</th>
+  </tr>
+  {% for trip in trips%}
+  <tr>
+    <td><a href="{% url 'travels:destination' t_id=trip.id%}">{{trip.destination}}</a></td>
+    <td>{{trip.date_from}}</td>
+    <td>{{trip.date_to}}</td>
+    <td>{{trip.description}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+<h2>Other User's Travel Plans</h2>
+<table>
+  <tr>
+    <th>name</th>
+    <th>Destination</th>
+    <th>Travel Start Date</th>
+    <th>Travel End Date</th>
+    <th>Do you want to join?</th>
+  </tr>
+
+  {% for travel in travels%}
+  <tr>
+    <td>{{travel.user_id}}</td>
+    <td><a href="{% url 'travels:destination' t_id=travel.id%}">{{travel.destination}}</a></td>
+    <td>{{travel.date_from}}</td>
+    <td>{{travel.date_to}}</td>
+    <td><a href="{% url 'travels:join' trip_id=travel.id%}">Join</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'login_reg/base.html' %}
+{% block body%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<a href="{% url 'travels:show' %}">Home</a>
+<a href="{% url 'auth:logout' %}">logout</a>
+<h1>Add a Trip</h1>
+<form class="" action="{% url 'travels:create' %}" method="post">
+  {% csrf_token %}
+  <label>Destination: </label><input type="text" name="destination" value="Singapore"><br>
+  <label>Description: </label><input type="text" name="description" value="Meet the people"><br>
+  <label>Travel Date From: </label><input type="date" name="date_from" value=""><br>
+  <label>Travel Date To: </label><input type="date" name="date_to" value=""><br>
+  <input type="submit" name="submit" value="Add"><br><br>
+{% endblock %}

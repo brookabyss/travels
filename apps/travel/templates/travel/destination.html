@@ -1,0 +1,14 @@
+{% extends 'login_reg/base.html' %}
+{% block body%}
+<a href="{% url 'travels:show' %}">Home</a>
+<a href="{% url 'auth:logout' %}">logout</a>
+<h1>{{trip.destination}}</h1>
+<h2>Planned By:{{trip.user_id.name}}</h2>
+<h2>Description:{{trip.description}}</h2>
+<h2>Travel Date From:{{trip.date_from}}</h2>
+<h2>Travel Date From:{{trip.date_to}}</h2>
+<h1>Other user's joining the trip:</h1>
+{% for user in joining %}
+<h2>{{user.name}}</h2>
+{% endfor %}
+{% endblock %}
