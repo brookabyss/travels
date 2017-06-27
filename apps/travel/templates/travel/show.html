@@ -39,9 +39,9 @@
     <th>Do you want to join?</th>
   </tr>
 
-  {% for travel in travels%}
+  {% for travel in travels %}
   <tr>
-    <td>{{travel.user_id}}</td>
+    <td>{{travel.user_id.name}}</td>
     <td><a href="{% url 'travels:destination' t_id=travel.id%}">{{travel.destination}}</a></td>
     <td>{{travel.date_from}}</td>
     <td>{{travel.date_to}}</td>

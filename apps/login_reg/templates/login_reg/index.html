@@ -10,17 +10,17 @@
 <h1>Registration</h1>
 <form class="" action="{% url 'auth:register' %}" method="post">
   {% csrf_token %}
-  <label>Name: </label><input type="text" name="name" value="Sisu"><br>
-  <label>Username: </label><input type="text" name="user_name" value="Banjo_abyss"><br>
-  <label>Password: </label><input type="password" name="password" value="123456789"><br>
-  <label>Confirm Pw: </label><input type="password" name="confirm" value="123456789"><br>
+  <label>Name: </label><input type="text" name="name" value=""><br>
+  <label>Username: </label><input type="text" name="user_name" value=""><br>
+  <label>Password: </label><input type="password" name="password" value=""><br>
+  <label>Confirm Pw: </label><input type="password" name="confirm" value=""><br>
   <input type="submit" name="submit" value="Register"><br><br>
 </form>
 <h1>Login</h1>
 <form class="" action="{% url 'auth:login' %}" method="post">
   {% csrf_token %}
-  <label>Username: </label><input type="text" name="user_name" value="Banjo_abyss"><br>
-  <label>Password: </label><input type="password" name="password" value="123456789"><br>
+  <label>Username: </label><input type="text" name="user_name" value=""><br>
+  <label>Password: </label><input type="password" name="password" value=""><br>
   <input type="submit" name="submit" value="Login">
 </form>
 {% endblock %}

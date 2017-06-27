@@ -7,8 +7,7 @@ def show(request):
     current_user=request.session["current_user_id"]
     user=User.objects.filter(id=current_user)[0]
     trips=Trip.objects.filter(user_id=user )| Trip.objects.filter(joining_users=user)
-    travels=Trip.objects.exclude(joining_users=user)
-
+    travels=Trip.objects.exclude(user_id=user)
     context={
         'user': user,
         'trips': trips,

@@ -16,19 +16,13 @@ class UserManager(models.Manager):
             return False
 
     def check_length(self,postData):
-        if len(postData) < 3:
+        if len(postData) < 4:
             return True
         else:
             return False
 
-    # def check_email(self,postData):
-    #     EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-    #     if not EMAIL_REGEX.match(postData):
-    #         return True
-    #     else:
-    #         return False
     def check_password_length(self,password):
-        if len(password) <8:
+        if len(password) <9:
                 return True
         else:
                 return False
@@ -38,15 +32,6 @@ class UserManager(models.Manager):
         else:
                 return False
 
-    # def birthday_check(self, birthday):
-    #     # you have to be at least a day old to register
-    #     current_date=datetime.now()-timedelta(days=1)
-    #     print "Date time now", datetime.now()
-    #     print"Current date #$^$%^$%^", current_date
-    #     if birthday > current_date:
-    #         return True
-    #     else:
-    #         return False
 
 
 
