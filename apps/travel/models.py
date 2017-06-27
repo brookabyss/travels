@@ -53,6 +53,8 @@ class TripManager(models.Manager):
                 errors.append('You already have a trip booked for this date')
                 return [False,errors]
             else:
+                date_from=date_from.strftime("%B %d, %Y")
+                date_to=date_to.strftime("%B %d, %Y")
                 self.create(user_id=user_id,destination=destination,description=description,date_from=date_from, date_to=date_to)
                 trips=self.all()
                 return [True, trips]
